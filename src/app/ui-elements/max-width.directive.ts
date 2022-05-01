@@ -1,5 +1,6 @@
 import {
   AfterViewChecked,
+  AfterViewInit,
   Directive,
   ElementRef,
   HostListener,
@@ -10,7 +11,7 @@ import { MIN_FONT, MAX_FONT } from '../app.constants'
 @Directive({
   selector: '[appMaxWidth]',
 })
-export class MaxWidthDirective implements AfterViewChecked {
+export class MaxWidthDirective implements AfterViewChecked, AfterViewInit {
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.setFontSize()
@@ -24,6 +25,10 @@ export class MaxWidthDirective implements AfterViewChecked {
     this.renderer.setStyle(this.el.nativeElement, 'display', 'flex')
     this.renderer.setStyle(this.el.nativeElement, 'justify-content', 'center')
     this.renderer.setStyle(this.el.nativeElement, 'margin', '0 20px')
+  }
+
+  public ngAfterViewInit() {
+    this.setFontSize()
   }
 
   public ngAfterViewChecked() {
