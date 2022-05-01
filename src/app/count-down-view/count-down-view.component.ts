@@ -8,7 +8,7 @@ import { CountDownService } from './count-down.service'
   styleUrls: ['./count-down-view.component.scss'],
 })
 export class CountDownViewComponent implements OnDestroy {
-  public eventName = 'No Events in calendar. Plan your event!'
+  public eventName = ''
   public formattedRemainingTime = ''
   private remainingSeconds = 0
   public interval = 0
