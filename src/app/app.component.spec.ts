@@ -1,25 +1,17 @@
-import { TestBed } from '@angular/core/testing';
+import { Spectator, createComponentFactory } from "@ngneat/spectator";
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
-  });
+  let sp: Spectator<AppComponent>;
+  const createComponent = createComponentFactory(AppComponent);
+  beforeEach(() => sp = createComponent());
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+  it('should exists', () => {
+    expect(sp).toBeDefined();
   });
 
   it(`should have as title 'countdown-app'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('countdown-app');
+    expect(sp.title).toEqual('countdown-app');
   });
 
   it('should render title', () => {

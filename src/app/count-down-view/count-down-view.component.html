@@ -1,0 +1,5 @@
+<div class="container">
+  <div appMaxWidth><p>{{eventName}}</p></div>
+  <div appMaxWidth *ngIf="interval"><p>{{formattedRemainingTime || '000 days, 00 h, 00 m, 00 s'}}</p></div>
+  <event-form (newDataToDisplay)="displayEventData($event)"></event-form>
+</div>

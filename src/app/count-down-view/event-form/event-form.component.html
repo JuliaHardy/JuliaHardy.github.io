@@ -1,0 +1,11 @@
+<div class="event-form">
+  <div class="input-container">
+    <label>Title</label>
+    <input type="text" placeholder="Event Name" [(ngModel)]="eventName" (mouseleave)="onSubmit()">
+  </div>
+  <div class="input-container">
+    <label>Date</label>
+    <input matInput [matDatepicker]="pickedDate" [min]="minDate" placeholder="Event End Date" (click)="pickedDate.open()" (focus)="pickedDate.open()" [(ngModel)]="eventDate">
+    <mat-datepicker #pickedDate (closed)="onSubmit()"></mat-datepicker>
+  </div>
+</div>

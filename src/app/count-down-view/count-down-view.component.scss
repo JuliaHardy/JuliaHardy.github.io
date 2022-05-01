@@ -1,0 +1,10 @@
+.container {
+  height: 100%;
+  > div {
+    font-weight: 800;
+    &:last-of-type {
+      font-weight: 400;
+
+    }
+  }
+}
