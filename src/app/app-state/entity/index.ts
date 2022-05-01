@@ -1,1 +1,1 @@
-export { Event } from './event.entity';
+export { Event } from './event.entity'

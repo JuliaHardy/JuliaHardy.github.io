@@ -5,7 +5,8 @@
   </div>
   <div class="input-container">
     <label>Date</label>
-    <input matInput [matDatepicker]="pickedDate" [min]="minDate" placeholder="Event End Date" (click)="pickedDate.open()" (focus)="pickedDate.open()" [(ngModel)]="eventDate">
+    <input matInput [matDatepicker]="pickedDate" [min]="minDate" placeholder="Event End Date"
+           (click)="pickedDate.open()" (focus)="pickedDate.open()" [(ngModel)]="eventDate">
     <mat-datepicker #pickedDate (closed)="onSubmit()"></mat-datepicker>
   </div>
 </div>

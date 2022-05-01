@@ -1,45 +1,47 @@
-import { Component, OnDestroy } from '@angular/core';
-import * as moment from 'moment';
-import { CountDownService } from "./count-down.service";
+import { Component, OnDestroy } from '@angular/core'
+import * as moment from 'moment'
+import { CountDownService } from './count-down.service'
 
 @Component({
   selector: 'count-down-view',
   templateUrl: './count-down-view.component.html',
-  styleUrls: ['./count-down-view.component.scss']
+  styleUrls: ['./count-down-view.component.scss'],
 })
-export class CountDownViewComponent implements OnDestroy{
+export class CountDownViewComponent implements OnDestroy {
   public eventName = 'No Events in calendar. Plan your event!'
-  public formattedRemainingTime = '';
-  private remainingSeconds = 0;
-  public interval = 0;
+  public formattedRemainingTime = ''
+  private remainingSeconds = 0
+  public interval = 0
 
   constructor(private countDownService: CountDownService) {}
 
   public displayEventData($event: { name: string; endDate: moment.Moment }) {
-    this.eventName = $event.name;
-    this.remainingSeconds = this.countDownService.calculateRemainingTime($event.endDate);
+    this.eventName = $event.name
+    this.remainingSeconds = this.countDownService.calculateRemainingTime(
+      $event.endDate,
+    )
     // this.remainingSeconds = 10;
-    this.formattedRemainingTime = this.countDownService.formatRemainingTimeString(this.remainingSeconds);
-    this.countDown();
+    this.formattedRemainingTime =
+      this.countDownService.formatRemainingTimeString(this.remainingSeconds)
+    this.countDown()
   }
 
   private processTime(): void {
-    if(!this.remainingSeconds) {
-      clearInterval(this.interval);
-      return;
+    if (!this.remainingSeconds) {
+      clearInterval(this.interval)
+      return
     }
-    this.remainingSeconds -= 1;
-    this.formattedRemainingTime = this.countDownService.formatRemainingTimeString(this.remainingSeconds);
+    this.remainingSeconds -= 1
+    this.formattedRemainingTime =
+      this.countDownService.formatRemainingTimeString(this.remainingSeconds)
   }
 
   private countDown(): void {
-    if(this.interval) clearInterval(this.interval);
-    this.interval = setInterval(() => this.processTime(), 1000);
+    if (this.interval) clearInterval(this.interval)
+    this.interval = setInterval(() => this.processTime(), 1000)
   }
 
   public ngOnDestroy(): void {
-    if(this.interval) clearInterval(this.interval);
+    if (this.interval) clearInterval(this.interval)
   }
-
-
 }

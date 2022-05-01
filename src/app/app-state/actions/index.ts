@@ -10,6 +10,6 @@ export {
   getEventDataFailure,
   createEvent,
   createEventSuccess,
-  createEventFailure
-} from './event.actions';
+  createEventFailure,
+} from './event.actions'
 
