@@ -12,4 +12,3 @@ export {
   createEventSuccess,
   createEventFailure,
 } from './event.actions'
-

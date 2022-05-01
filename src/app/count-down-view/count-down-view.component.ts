@@ -20,7 +20,6 @@ export class CountDownViewComponent implements OnDestroy {
     this.remainingSeconds = this.countDownService.calculateRemainingTime(
       $event.endDate,
     )
-    // this.remainingSeconds = 10;
     this.formattedRemainingTime =
       this.countDownService.formatRemainingTimeString(this.remainingSeconds)
     this.countDown()

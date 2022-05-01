@@ -18,5 +18,3 @@ export const getItem: any = (itemName: string) => {
     return items
   }
 }
-
-
